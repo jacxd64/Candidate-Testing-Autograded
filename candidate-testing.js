@@ -40,14 +40,22 @@ function gradeQuiz(candidateAnswers) {
     console.log("Incorrect! Try Again.")
   } */
 
+  let score = 0;
+
   for (let i = 0; i < questions.length; i++){
     console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}\n`)
+    if (correctAnswers[i].toLowerCase() === candidateAnswers[i].toLowerCase()){
+      score += 1
+    }
   }
 
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-
+  let grade = score / questions.length * 100;  //TODO 3.2 use this variable to calculate the candidates score.
+  if (grade >= 80) {
+    console.log("You Passed with a score of: ")
+  } else {
+    console.log("You Failed with a score of: ")
+  }
+  console.log(`${score} out of ${questions.length}, or ${grade}%.`)
   return grade;
 }
 
